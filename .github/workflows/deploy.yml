@@ -28,24 +28,20 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
+      - name: Prepare files for deployment
+        run: |
+          mkdir -p deploy
+          cp index.html deploy/
+          cp game.js deploy/
+          cp style.css deploy/
+          cp background.png deploy/ 2>/dev/null || true
+          cp girl-extracted.png deploy/ 2>/dev/null || true
+          ls -la deploy/
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
-          exclude: |
-            .git
-            .github
-            node_modules
-            dist
-            src
-            *.ts
-            *.tsbuildinfo
-            tsconfig.json
-            package.json
-            package-lock.json
-            extract_background.py
-            .gitignore
-            Screenshot*.png
+          path: './deploy'
 
       - name: Deploy to GitHub Pages
         id: deployment
