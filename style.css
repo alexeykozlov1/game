@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #001122 0%, #003366 50%, #001a33 100%);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(135, 206, 235, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(70, 130, 180, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 52px;
+    margin-bottom: 20px;
+    text-shadow: 
+        0 0 10px #87ceeb,
+        0 0 20px #87ceeb,
+        0 0 30px #4682b4,
+        0 0 40px #4682b4;
+    letter-spacing: 3px;
+    animation: oceanGlow 3s ease-in-out infinite alternate;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+@keyframes oceanGlow {
+    from {
+        text-shadow: 
+            0 0 10px #87ceeb,
+            0 0 20px #87ceeb,
+            0 0 30px #4682b4;
+    }
+    to {
+        text-shadow: 
+            0 0 20px #87ceeb,
+            0 0 30px #4682b4,
+            0 0 40px #4682b4,
+            0 0 50px #1e90ff;
+    }
+}
+
+#gameCanvas {
+    border: 4px solid #87ceeb;
+    box-shadow: 
+        0 0 20px #87ceeb,
+        0 0 40px rgba(135, 206, 235, 0.5),
+        inset 0 0 30px rgba(135, 206, 235, 0.1);
+    background: #001122;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.instructions {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 2;
+    color: #e0f7ff;
+    text-shadow: 0 0 10px rgba(135, 206, 235, 0.8);
+    background: rgba(0, 51, 102, 0.3);
+    padding: 15px 25px;
+    border-radius: 10px;
+    border: 2px solid rgba(135, 206, 235, 0.3);
+    display: inline-block;
+}
+
+.instructions p {
+    margin: 8px 0;
+}
+
+strong {
+    color: #ffff00;
+    text-shadow: 0 0 10px #ffff00, 0 0 20px rgba(255, 255, 0, 0.5);
+    font-weight: bold;
+}
+
